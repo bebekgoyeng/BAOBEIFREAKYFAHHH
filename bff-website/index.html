@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BFF ✦ BAOBEIFREAKYFAHHH</title>
+  <meta name="description" content="BFF — 一起聽音樂、拍貼、分享生活的 Frutiger Aero 小宇宙">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Noto Sans TC = 長文字；Orbitron = HK Modular 不在電腦上時的備用字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 漂浮泡泡（由 js/app.js 產生） -->
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <!-- ============ Home（起始頁） ============ -->
+  <section class="view view-center" id="view-start" hidden>
+    <div class="hero-card glass">
+      <img class="deco deco-sparkle s1" src="img/elements/sparkle.svg" alt="" aria-hidden="true">
+      <img class="deco deco-sparkle s2" src="img/elements/sparkle-pink.svg" alt="" aria-hidden="true">
+      <img class="deco deco-sparkle s3" src="img/elements/sparkle-cyan.svg" alt="" aria-hidden="true">
+      <img class="hero-logo" src="img/logo.png" alt="BFF BAOBEIFREAKYFAHHH">
+      <p class="hero-tagline">聽音樂・拍貼紙照・分享心情<br>和你的 BFF 一起閃閃發亮 ✦</p>
+      <a class="btn btn-green btn-xl" href="#/userinfo"><span class="en">START</span></a>
+    </div>
+  </section>
+
+  <!-- ============ /userinfo ============ -->
+  <section class="view view-center" id="view-userinfo" hidden>
+    <form class="hero-card glass userinfo-card" id="userinfo-form" novalidate>
+      <img class="deco deco-sparkle s1" src="img/elements/sparkle.svg" alt="" aria-hidden="true">
+      <img class="deco deco-sparkle s2" src="img/elements/sparkle-pink.svg" alt="" aria-hidden="true">
+      <img class="userinfo-logo" src="img/logo-badge.png" alt="BFF">
+      <h1 class="title-cn userinfo-title">建立你的 BFF 檔案</h1>
+
+      <label class="field">
+        <span class="field-label">使用者名稱</span>
+        <input class="field-input" id="ui-name" name="name" type="text" maxlength="20" autocomplete="nickname" placeholder="Username..." required>
+      </label>
+
+      <label class="field">
+        <span class="field-label">生日 <small id="ui-zodiac" class="zodiac"></small></span>
+        <input class="field-input en-num" id="ui-birthday" name="birthday" type="date">
+      </label>
+
+      <div class="field">
+        <span class="field-label" id="ui-interest-label">興趣 <small>（輸入後按 Enter）</small></span>
+        <div class="field-input tag-input" id="ui-tags">
+          <input id="ui-interest" type="text" maxlength="16" placeholder="Interest..." aria-labelledby="ui-interest-label">
+        </div>
+        <div class="tag-suggest" id="ui-suggest" aria-label="興趣建議"></div>
+      </div>
+
+      <p class="form-error" id="ui-error" role="alert"></p>
+      <button class="btn btn-green btn-lg" type="submit"><span class="en">START</span></button>
+    </form>
+  </section>
+
+  <!-- ============ 主要頁面框架（/home /music /photobooth /post） ============ -->
+  <div class="shell" id="app-shell" hidden>
+    <header class="topbar">
+      <a class="logo-link" href="#/" aria-label="回到首頁"><img src="img/logo-badge.png" alt="BFF"></a>
+      <a class="avatar" id="avatar" href="#/userinfo" aria-label="編輯個人資料"><span id="avatar-letter">B</span></a>
+    </header>
+
+    <nav class="mainnav" aria-label="主選單">
+      <a class="btn btn-nav" href="#/home" data-nav="home"><span class="en">Home</span></a>
+      <a class="btn btn-nav" href="#/music" data-nav="music"><span class="en">Music</span></a>
+      <a class="btn btn-nav" href="#/photobooth" data-nav="photobooth"><span class="en">Photobooth</span></a>
+      <a class="btn btn-nav" href="#/post" data-nav="post"><span class="en">Post</span></a>
+    </nav>
+
+    <main class="stage">
+      <!-- 左側：音樂播放器（換頁不會中斷） -->
+      <aside class="panel player" id="player" aria-label="音樂播放器">
+        <header class="panel-head">
+          <h2 class="title-cn">音樂播放中</h2>
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </header>
+        <div class="player-body">
+          <div class="player-art">
+            <div class="disc-wrap">
+              <div class="cd-slide"><div class="cd" id="pl-cd"><span class="cd-label" id="pl-cd-label"></span><span class="cd-hole"></span></div></div>
+              <img class="cover" id="pl-cover" src="img/covers/cover-1.svg" alt="">
+            </div>
+          </div>
+          <div class="track-meta">
+            <p class="track-title en" id="pl-title">Aqua Bubble</p>
+            <p class="track-sub" id="pl-sub">BFF Radio</p>
+          </div>
+          <div class="controls">
+            <button class="round-btn btn-pink" id="pl-replay" type="button" aria-label="重播／上一首" title="重播／上一首">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1.5L6.8 6.2 12 11V7.4a5.6 5.6 0 1 1-5.6 5.6H4a8 8 0 1 0 8-8z"/></svg>
+            </button>
+            <button class="round-btn btn-green play-btn" id="pl-play" type="button" aria-label="播放">
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4.2" height="14" rx="1.4"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.4"/></svg>
+            </button>
+            <button class="round-btn btn-pink" id="pl-skip" type="button" aria-label="下一首" title="下一首">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18.2l9-6.2-9-6.2zM15.5 6h2.6v12h-2.6z"/></svg>
+            </button>
+          </div>
+          <div class="progress">
+            <input type="range" id="pl-seek" min="0" max="1000" value="0" step="1" aria-label="播放進度">
+            <div class="times en-num"><span id="pl-cur">0:00</span><span id="pl-dur">0:00</span></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 右側：每頁內容（由 js/pages.js 從下方 template 產生） -->
+      <section class="content" id="content" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <!-- ============ 署名 ============ -->
+  <footer class="credit">
+    <img src="img/credit.png" alt="114AC2008 賴香敏 ✦ 114AC2028 王慧晴">
+  </footer>
+
+  <audio id="audio" preload="metadata"></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- =================================================================
+       頁面樣板 (templates)：要改版面文字，直接改這裡就好
+       ================================================================= -->
+
+  <!-- /home：貼文列表 -->
+  <template id="tpl-home">
+    <div class="feed scroll" id="feed">
+      <div class="panel greet">
+        <span class="greet-text">嗨，<b class="greet-name"></b>！今天也要閃閃發亮 ✦</span>
+        <a class="btn btn-pink btn-sm" href="#/post">＋ 發一篇</a>
+      </div>
+    </div>
+  </template>
+
+  <!-- 一張貼文卡（/home 列表用） -->
+  <template id="tpl-post-card">
+    <a class="panel post-card">
+      <header class="panel-head"><span class="mini-avatar"></span><span class="post-author"></span></header>
+      <div class="post-body">
+        <div class="post-top"><h3 class="post-title title-cn"></h3><time class="post-date en-num"></time></div>
+        <p class="post-text clamp"></p>
+        <img class="post-img" alt="">
+      </div>
+    </a>
+  </template>
+
+  <!-- /home-2：完整貼文 -->
+  <template id="tpl-post-detail">
+    <article class="panel panel-fill">
+      <header class="panel-head">
+        <span class="mini-avatar"></span><span class="post-author"></span>
+        <span class="head-actions">
+          <button class="btn btn-mini btn-pink" type="button" data-delete hidden>刪除</button>
+          <a class="btn btn-mini btn-white" href="#/home">← 返回</a>
+        </span>
+      </header>
+      <div class="panel-body scroll post-detail">
+        <div class="post-top"><h3 class="post-title title-cn big"></h3><time class="post-date en-num"></time></div>
+        <p class="post-text full"></p>
+        <img class="post-img big" alt="">
+      </div>
+    </article>
+  </template>
+
+  <!-- /music：歌曲清單 -->
+  <template id="tpl-music">
+    <section class="panel panel-fill">
+      <header class="panel-head"><h2 class="title-cn">目前選擇：<span class="en" data-current></span></h2></header>
+      <div class="panel-body scroll">
+        <ul class="track-list" id="track-list"></ul>
+      </div>
+    </section>
+  </template>
+
+  <template id="tpl-track-row">
+    <li>
+      <button class="track-row" type="button">
+        <img class="track-cover" alt="">
+        <span class="track-info"><span class="track-name en"></span><span class="track-mood"></span></span>
+        <span class="track-eq eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="track-len en-num"></span>
+      </button>
+    </li>
+  </template>
+
+  <!-- /photobooth：選擇拍照或上傳 -->
+  <template id="tpl-booth-1">
+    <section class="panel panel-fill">
+      <header class="panel-head">
+        <h2 class="title-cn">選擇拍照方式</h2>
+        <span class="steps en-num"><b>1</b><i>2</i><i>3</i></span>
+      </header>
+      <div class="panel-body booth">
+        <div class="fit-area">
+          <div class="booth-preview" id="booth-preview">
+            <div class="booth-placeholder">
+              <img src="img/elements/cd.svg" alt="" class="spin-slow">
+              <p>拍一張，或從相簿挑一張照片吧！</p>
+            </div>
+            <video id="booth-video" playsinline muted hidden></video>
+            <div class="countdown en-num" id="booth-count" hidden></div>
+            <div class="flash" id="booth-flash"></div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-cyan btn-md" type="button" id="booth-camera">📷 拍照</button>
+          <button class="btn btn-pink btn-md" type="button" id="booth-upload">⬆ 上傳照片</button>
+          <button class="btn btn-white btn-md" type="button" id="booth-cancel" hidden>取消</button>
+          <input type="file" id="booth-file" accept="image/*" hidden>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- /photobooth-2：選相框 -->
+  <template id="tpl-booth-2">
+    <section class="panel panel-fill">
+      <header class="panel-head">
+        <h2 class="title-cn">挑一個喜歡的相框！</h2>
+        <span class="head-actions">
+          <span class="steps en-num"><i>1</i><b>2</b><i>3</i></span>
+          <a class="btn btn-mini btn-white" href="#/photobooth">← 重拍</a>
+        </span>
+      </header>
+      <div class="panel-body">
+        <div class="frame-grid" id="frame-grid"></div>
+      </div>
+    </section>
+  </template>
+
+  <!-- /photobooth-3：貼貼紙 -->
+  <template id="tpl-booth-3">
+    <section class="panel panel-fill">
+      <header class="panel-head">
+        <h2 class="title-cn">加點貼紙更有趣！</h2>
+        <span class="head-actions">
+          <span class="steps en-num"><i>1</i><i>2</i><b>3</b></span>
+          <a class="btn btn-mini btn-white" href="#/photobooth-2">← 換相框</a>
+        </span>
+      </header>
+      <div class="panel-body booth">
+        <div class="decorate">
+          <div class="fit-area">
+            <div class="stage-box" id="deco-stage"></div>
+          </div>
+          <div class="sticker-col">
+            <p class="sticker-hint">點一下加入貼紙</p>
+            <div class="sticker-list scroll" id="sticker-list"></div>
+          </div>
+        </div>
+        <p class="hint">拖曳移動・拉右下角 <b>↻</b> 縮放旋轉・點 <b>×</b> 刪除</p>
+        <div class="actions">
+          <button class="btn btn-white btn-md" type="button" id="deco-clear">清除貼紙</button>
+          <button class="btn btn-cyan btn-md" type="button" id="deco-save">💾 儲存照片</button>
+          <button class="btn btn-green btn-md" type="button" id="deco-post">✦ 發佈</button>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- /post：發文 -->
+  <template id="tpl-post">
+    <form class="panel panel-fill" id="post-form" novalidate>
+      <header class="panel-head"><h2 class="title-cn">寫點什麼吧…</h2></header>
+      <div class="panel-body compose" id="compose">
+        <div class="post-top">
+          <input class="compose-title title-cn" id="post-title" type="text" maxlength="40" placeholder="標題" aria-label="標題">
+          <time class="post-date en-num" id="post-date"></time>
+        </div>
+        <textarea class="compose-text scroll" id="post-text" maxlength="2000" placeholder="在這裡輸入內容…" aria-label="內文"></textarea>
+        <div class="compose-img" id="post-img-wrap" hidden>
+          <img id="post-img" alt="已選擇的圖片">
+          <button class="round-btn btn-pink remove" type="button" id="post-img-remove" aria-label="移除圖片">×</button>
+        </div>
+        <div class="compose-foot">
+          <span class="count en-num" id="post-count">0 / 2000</span>
+          <span class="actions">
+            <button class="btn btn-pink btn-md" type="button" id="post-upload">⬆ 上傳照片</button>
+            <button class="btn btn-green btn-md" type="submit">✦ 發佈</button>
+          </span>
+          <input type="file" id="post-file" accept="image/*" hidden>
+        </div>
+      </div>
+    </form>
+  </template>
+
+  <!-- 一般 script（不是 module），所以直接雙擊 index.html 也能用 -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/stickers.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/photobooth.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
