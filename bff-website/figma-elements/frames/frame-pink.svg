@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 1000" width="1250" height="1000"><defs><linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd8fd"/><stop offset="1" stop-color="#ffa4fb"/></linearGradient>
+      <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="5" fill="#fff"/><circle cx="23" cy="23" r="5" fill="#fff"/></pattern>
+      <mask id="hole"><rect width="1250" height="1000" fill="#fff"/><rect x="100" y="100" width="1050" height="690" rx="28" fill="#000"/></mask></defs>
+      <g mask="url(#hole)">
+        <rect width="1250" height="1000" rx="48" fill="url(#body)"/>
+        <rect width="1250" height="1000" fill="url(#dots)" opacity=".75"/>
+        <rect width="1250" height="380" fill="url(#shine)" opacity=".45"/>
+      </g>
+      <rect x="100" y="100" width="1050" height="690" rx="28" fill="none" stroke="#fff" stroke-width="12"/>
+      <rect x="7" y="7" width="1236" height="986" rx="44" fill="none" stroke="#fff" stroke-width="14"/>
+      <path d="M1150.0,10.0 L1179.4,79.5 L1254.6,86.0 L1197.6,135.5 L1214.7,209.0 L1150.0,170.0 L1085.3,209.0 L1102.4,135.5 L1045.4,86.0 L1120.6,79.5Z" fill="#fff" stroke="#ff6cf0" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M1150,94 C1154.8,119.2 1154.8,119.2 1180,124 C1154.8,128.8 1154.8,128.8 1150,154 C1145.2,128.8 1145.2,128.8 1120,124 C1145.2,119.2 1145.2,119.2 1150,94Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="3.5999999999999996" stroke-linejoin="round"/>
+      <path d="M105,854.8 C51,817 27.599999999999994,788.2 34.8,757.6 C42,727 81.6,719.8 105,750.4 C128.4,719.8 168,727 175.2,757.6 C182.4,788.2 159,817 105,854.8Z" fill="#ff7cf5" stroke="#fff" stroke-width="10"/>
+      <ellipse cx="80" cy="750" rx="26" ry="12" fill="url(#shine)" opacity=".9" transform="rotate(-20 80 750)"/>
+      <text x="625" y="905" text-anchor="middle" font-family="'Arial Black','Arial Rounded MT Bold',Arial,sans-serif" font-size="78" fill="#fff" stroke="#ff5fec" stroke-width="12" paint-order="stroke" textLength="820" lengthAdjust="spacingAndGlyphs">BAOBEIFREAKYFAHHH</text>
+      <path d="M160,866 C165.44,894.56 165.44,894.56 194,900 C165.44,905.44 165.44,905.44 160,934 C154.56,905.44 154.56,905.44 126,900 C154.56,894.56 154.56,894.56 160,866Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="4.08" stroke-linejoin="round"/><path d="M1090,866 C1095.44,894.56 1095.44,894.56 1124,900 C1095.44,905.44 1095.44,905.44 1090,934 C1084.56,905.44 1084.56,905.44 1056,900 C1084.56,894.56 1084.56,894.56 1090,866Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="4.08" stroke-linejoin="round"/></svg>

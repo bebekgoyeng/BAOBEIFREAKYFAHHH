@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 1000" width="1250" height="1000"><defs><pattern id="check" width="60" height="60" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="#a6ffff"/><rect x="30" y="30" width="30" height="30" fill="#a6ffff"/></pattern>
+      <linearGradient id="fadeGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#48ff65" stop-opacity=".35"/></linearGradient>
+      <linearGradient id="pill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe6fe"/><stop offset="1" stop-color="#ff9ef8"/></linearGradient>
+      <mask id="hole"><rect width="1250" height="1000" fill="#fff"/><rect x="110" y="140" width="1030" height="740" rx="70" fill="#000"/></mask></defs>
+      <g mask="url(#hole)">
+        <rect width="1250" height="1000" rx="56" fill="#fff"/>
+        <rect width="1250" height="1000" fill="url(#check)"/>
+        <rect width="1250" height="1000" fill="url(#fadeGreen)"/>
+      </g>
+      <rect x="110" y="140" width="1030" height="740" rx="70" fill="none" stroke="#fff" stroke-width="22"/>
+      <rect x="98" y="128" width="1054" height="764" rx="80" fill="none" stroke="#48ff65" stroke-width="8"/>
+      <rect x="7" y="7" width="1236" height="986" rx="52" fill="none" stroke="#fff" stroke-width="14"/>
+      <rect x="295" y="28" width="660" height="88" rx="44" fill="url(#pill)" stroke="#fff" stroke-width="8"/>
+      <rect x="320" y="36" width="610" height="30" rx="15" fill="#fff" opacity=".55"/>
+      <text x="625" y="91" text-anchor="middle" font-family="'Arial Black','Arial Rounded MT Bold',Arial,sans-serif" font-size="44" fill="#fff" stroke="#ff5fec" stroke-width="9" paint-order="stroke" textLength="560" lengthAdjust="spacingAndGlyphs">BEST FRIENDS FOREVER</text>
+      <path d="M255,42 C259.8,67.2 259.8,67.2 285,72 C259.8,76.8 259.8,76.8 255,102 C250.2,76.8 250.2,76.8 225,72 C250.2,67.2 250.2,67.2 255,42Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="3.5999999999999996" stroke-linejoin="round"/><path d="M995,42 C999.8,67.2 999.8,67.2 1025,72 C999.8,76.8 999.8,76.8 995,102 C990.2,76.8 990.2,76.8 965,72 C990.2,67.2 990.2,67.2 995,42Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="3.5999999999999996" stroke-linejoin="round"/>
+      <path d="M95,50 C106.2,108.8 106.2,108.8 165,120 C106.2,131.2 106.2,131.2 95,190 C83.8,131.2 83.8,131.2 25,120 C83.8,108.8 83.8,108.8 95,50Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="8.4" stroke-linejoin="round"/><path d="M1155,50 C1166.2,108.8 1166.2,108.8 1225,120 C1166.2,131.2 1166.2,131.2 1155,190 C1143.8,131.2 1143.8,131.2 1085,120 C1143.8,108.8 1143.8,108.8 1155,50Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="8.4" stroke-linejoin="round"/><path d="M95,830 C106.2,888.8 106.2,888.8 165,900 C106.2,911.2 106.2,911.2 95,970 C83.8,911.2 83.8,911.2 25,900 C83.8,888.8 83.8,888.8 95,830Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="8.4" stroke-linejoin="round"/><path d="M1155,830 C1166.2,888.8 1166.2,888.8 1225,900 C1166.2,911.2 1166.2,911.2 1155,970 C1143.8,911.2 1143.8,911.2 1085,900 C1143.8,888.8 1143.8,888.8 1155,830Z" fill="#48ff65" stroke="#ffa4fb" stroke-width="8.4" stroke-linejoin="round"/></svg>
